@@ -3,7 +3,7 @@
 #include "optimize.h"
 #include "functions.h"
 
-//plot and printing
+// declare plot and printing functions
 void MakePlot(cmplxpnt plot[], int plotsize, double start, double stop, complex<double> (*func)(double));
 void MakeFarField(cmplxpnt plot[], int plotsize, double start, double stop, complex<double> (*func)(double, complex<double> (*)(double x)),complex<double>(*func2FT)(double));
 void MakeFarField(cmplxpnt farfield[], int plotsize, double start, double stop, cmplxpnt nearfield[]);
@@ -41,8 +41,7 @@ int main()
 	revertZ(Zplot,NUMsample);
 	degrees2radians(farfield,NUMpnts);
 	
-	for(int trial=0;trial<NUMtrials;++trial)
-	{
+	for(int trial=0;trial<NUMtrials;++trial){
 		optimize(farfield,Yplot,Zplot,limits);
 	}
 
